@@ -88,6 +88,9 @@ func generateServiceMonitorConfig(m *v1alpha1.ServiceMonitor, ep v1alpha1.Endpoi
 	if ep.Path != "" {
 		cfg["metrics_path"] = ep.Path
 	}
+	if len(ep.Params) != 0 {
+		cfg["params"] = ep.Params
+	}
 	if ep.Scheme != "" {
 		cfg["scheme"] = ep.Scheme
 	}

@@ -15,6 +15,8 @@
 package v1alpha1
 
 import (
+	"net/url"
+
 	"k8s.io/client-go/pkg/api/unversioned"
 	"k8s.io/client-go/pkg/api/v1"
 	"k8s.io/client-go/pkg/util/intstr"
@@ -172,6 +174,8 @@ type Endpoint struct {
 	TargetPort intstr.IntOrString `json:"targetPort,omitempty"`
 	// HTTP path to scrape for metrics.
 	Path string `json:"path,omitempty"`
+	// A set of query parameters with which the target is scraped.
+	Params url.Values `yaml:"params,omitempty"`
 	// HTTP scheme to use for scraping.
 	Scheme string `json:"scheme,omitempty"`
 	// Interval at which metrics should be scraped
